@@ -1,0 +1,9 @@
+use KEYCHAIN
+db.createCollection("keychain")
+db.createCollection("id")
+
+use SMARTCONTRACT
+db.createCollection("smartcontract")
+
+#db.KEYCHAIN.id.insert({ key: "value" })
+#First insert will define the strcture of the DB.
