@@ -31,6 +31,26 @@ resource "aws_instance" "single" {
     destination = "/tmp/cassandra_v0_data_init.py"
   }
 
+provisioner "file" {
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key = "${file(var.private_key_path)}"
+    }
+    source      = "scripts/select_single_txn.py"
+    destination = "/tmp/select_single_txn.py"
+  }
+
+  provisioner "file" {
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key = "${file(var.private_key_path)}"
+    }
+    source      = "scripts/get_txn_chain.py"
+    destination = "/tmp/get_txn_chain.py"
+  }
+
 
   user_data = <<-EOF
               #!/bin/bash
@@ -44,6 +64,8 @@ resource "aws_instance" "single" {
               sudo apt install -y cassandra ;
               sudo chown -R cassandra:cassandra /DATA/cassandra ;
               sudo chown cassandra:cassandra /var/lib/cassandra ;
+              sudo sed  -i 's/#-Xmx4G/-Xmx8G/g' /etc/cassandra/jvm.options ;
+              sudo sed  -i 's/#-Xms4G/-Xms4G/g' /etc/cassandra/jvm.options ;
               sudo systemctl enable cassandra ;
               sudo systemctl start cassandra ;
               sleep 2m;

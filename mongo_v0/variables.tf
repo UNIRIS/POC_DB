@@ -14,3 +14,7 @@ variable "ami_key_pair_name" {
 variable "security_group" {
   default = "default_linux"
 }
+
+variable "private_key_path" {
+  default = "/home/ba3aw/.ssh/id_rsa"
+}
