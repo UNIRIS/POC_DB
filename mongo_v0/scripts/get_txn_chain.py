@@ -2,7 +2,7 @@ import sys
 import os
 import time
 import hashlib
-from cassandra.cluster import Cluster
+from pymongo import MongoClient
                        
 def main():
 
@@ -13,9 +13,10 @@ def main():
         os.remove(resultFilePath)
 
     #Connect to the DB
-    cluster = Cluster(['127.0.0.1'])
-    session = cluster.connect()
-    session.set_keyspace('smartcontract')
+    client = MongoClient(port=27017)
+    db = client["smartcontract"]
+    col = db["smartcontract"]
+
     i = str(sys.argv[1])
 
     #GEN address
@@ -29,16 +30,7 @@ def main():
     start_time = time.time()
     
     while PREVIOUS_PUBK != 'nil':
-        #GEN query
-        query = "SELECT * FROM SMARTCONTRACT where address = '" + ADDR + "'"
-    
-	    #execute the query on the DB
-        txn = session.execute(query)
-	    
-        for row in txn:
-            f.write(str(row)+'\n')
-            PREVIOUS_PUBK = row.prev_pubk
-            ADDR = hashlib.sha256(row.prev_pubk).hexdigest()
+        #To be continued
 
     f.close()
     elapsed_time = time.time() - start_time

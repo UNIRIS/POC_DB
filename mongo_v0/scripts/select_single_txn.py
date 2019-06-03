@@ -1,35 +1,30 @@
 import sys
 import time
 import hashlib
-from cassandra.cluster import Cluster
+from pymongo import MongoClient
                        
 def main():
 
     #Connect to the DB
-    cluster = Cluster(['127.0.0.1'])
-    session = cluster.connect()
-    session.set_keyspace('smartcontract')
+    client = MongoClient(port=27017)
+    db = client["smartcontract"]
+    col = db["smartcontract"]
+
     i = str(sys.argv[1])
 
     #GEN address
     ADDR = hashlib.sha256(i).hexdigest()
-
-    #GEN query
-    query = "SELECT * FROM SMARTCONTRACT where address = '" + ADDR + "'"
     
     #Start a timer
     start_time = time.time()
 
 	#execute the query on the DB
-    txn = session.execute(query)
+    txn = col.find_one({"address": ADDR})
 	
     elapsed_time = time.time() - start_time
-
-    for row in txn:
-        print row
-
-    elapsed_time = time.time() - start_time
     print "Selecting one Txn takes: " , elapsed_time , "seconds"
+
+    print txn
 
 
 if __name__ == "__main__":

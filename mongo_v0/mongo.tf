@@ -19,7 +19,7 @@ provisioner "file" {
     destination = "/tmp/select_single_txn.py"
   }
 
-  provisioner "file" {
+provisioner "file" {
     connection {
       type     = "ssh"
       user     = "ubuntu"
@@ -29,6 +29,19 @@ provisioner "file" {
     destination = "/tmp/get_txn_chain.py"
   }
 
+provisioner "file" {
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key = "${file(var.private_key_path)}"
+    }
+    source      = "scripts/mongo_v0_data_init.py"
+    destination = "/tmp/mongo_v0_data_init.py"
+  }
+
+
+
+
   user_data = <<-EOF
               #!/bin/bash
               sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 68818C72E52529D4 ;
@@ -36,11 +49,12 @@ provisioner "file" {
               sudo mkdir -p /DATA/mongodb ;
               sudo ln -s /DATA/mongodb /var/lib/mongodb ;
               sudo apt-get update ;
-              sudo apt-get install -y mongodb-org ;
+              sudo apt-get install -y mongodb-org python2.7 python-pip ;
               sudo chown -R mongodb:mongodb /DATA/mongodb ;
               sudo chown mongodb:mongodb /var/lib/mongodb ;
               sudo systemctl start mongod ;
               sudo systemctl enable mongod ;
+              sudo pip install pymongo 
               EOF
 
   tags {

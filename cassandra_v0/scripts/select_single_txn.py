@@ -28,7 +28,6 @@ def main():
     for row in txn:
         print row
 
-    elapsed_time = time.time() - start_time
     print "Selecting one Txn takes: " , elapsed_time , "seconds"
 
 
