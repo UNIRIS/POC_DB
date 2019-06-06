@@ -54,7 +54,7 @@ provisioner "file" {
             sudo apt-get update
             sudo apt install -y curl python2.7 python-pip python-dev libssl-dev zlib1g-dev;
             sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
-            sudo pip install aerospike
+            sudo pip install aerospike ;
             cd /tmp && wget -O aerospike.tgz 'https://www.aerospike.com/download/server/latest/artifact/ubuntu18' ;
             tar -xvf aerospike.tgz ;
             sleep 1m ;

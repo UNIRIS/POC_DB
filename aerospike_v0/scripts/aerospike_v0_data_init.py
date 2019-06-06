@@ -50,16 +50,16 @@ def main():
             'timestamp': TIMESTAMP, \
             'ledger_UCO': '', \
             'ledger_NFT': '', \
-            'ledger_stcok_mgmt': '', \
+            'ledger_stock': '', \
             'smartcontract': DATA, \
             'content': '', \
             'keys': '', \
             "prev_pubk" : PREVIOUS_PUBK, \
             "prev_sig" : PREVIOUS_SIG, \
             "origin_sig" : ORIGIN_SIG, \
-            "validation_stamp" : VALIDATION_STAMP, \
-            "cross_validation" : CROSS_VALIDATION }
-            
+            "valid_stamp" : VALIDATION_STAMP, \
+            "cross_valid" : CROSS_VALIDATION }
+
         client.put(key, bins)
 
 		#PROGRESS
