@@ -56,6 +56,7 @@ provisioner "file" {
               #!/bin/bash
               echo "deb http://www.apache.org/dist/cassandra/debian 39x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list ;
               sudo apt install -y curl python2.7 python-pip ;
+              sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
               sudo pip install cassandra-driver ;
               curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add - ;
               sudo apt update ;

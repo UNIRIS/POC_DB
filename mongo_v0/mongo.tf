@@ -39,9 +39,6 @@ provisioner "file" {
     destination = "/tmp/mongo_v0_data_init.py"
   }
 
-
-
-
   user_data = <<-EOF
               #!/bin/bash
               sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 68818C72E52529D4 ;
@@ -50,11 +47,13 @@ provisioner "file" {
               sudo ln -s /DATA/mongodb /var/lib/mongodb ;
               sudo apt-get update ;
               sudo apt-get install -y mongodb-org python2.7 python-pip ;
+              sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
               sudo chown -R mongodb:mongodb /DATA/mongodb ;
               sudo chown mongodb:mongodb /var/lib/mongodb ;
               sudo systemctl start mongod ;
               sudo systemctl enable mongod ;
-              sudo pip install pymongo 
+              sudo pip install pymongo
+              sudo python /tmp/mongo_v0_data_init.py > /tmp/poc_bdd_mongo_v0.log 2>&1 ; 
               EOF
 
   tags {
