@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-0e2f8b6407c122aff"
+  ami = "ami-0abcc115edb9a5bb2"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
@@ -43,11 +43,11 @@ provisioner "file" {
               #!/bin/bash
               sudo mkdir -p /DATA/leveldb/onDiskDB ;
               sudo apt-get update ;
-              sudo apt-get install -y libsnappy-dev python2.7 python-pip ;
+              sudo apt-get install -y libsnappy-dev ;
               sudo go get github.com/kanosaki/ldbsh ;
-              sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
               sudo pip install plyvel ;
               cd /DATA/leveldb && wget https://github.com/google/leveldb/archive/1.22.tar.gz && tar xvf 1.22.tar.gz && rm -rf 1.22.tar.gz ;
+              sleep 2m ;
               sudo python /tmp/leveldb_v0_data_init.py > /tmp/poc_bdd_leveldb_v0.log 2>&1 ; 
               EOF
   tags {

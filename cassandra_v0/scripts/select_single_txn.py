@@ -2,7 +2,7 @@ import sys
 import time
 import hashlib
 from cassandra.cluster import Cluster
-                       
+
 def main():
 
     #Connect to the DB
@@ -16,13 +16,13 @@ def main():
 
     #GEN query
     query = "SELECT * FROM SMARTCONTRACT where address = '" + ADDR + "'"
-    
+
     #Start a timer
     start_time = time.time()
 
-	#execute the query on the DB
+        #execute the query on the DB
     txn = session.execute(query)
-	
+
     elapsed_time = time.time() - start_time
 
     for row in txn:
@@ -32,4 +32,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+    main()

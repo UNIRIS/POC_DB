@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-0e2f8b6407c122aff"
+  ami = "ami-0abcc115edb9a5bb2"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
@@ -52,8 +52,7 @@ provisioner "file" {
   user_data = <<-EOF
             #!/bin/bash
             sudo apt-get update
-            sudo apt install -y curl python2.7 python-pip python-dev libssl-dev zlib1g-dev;
-            sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
+            sudo apt install -y python-dev libssl-dev zlib1g-dev;
             sudo pip install aerospike ;
             cd /tmp && wget -O aerospike.tgz 'https://www.aerospike.com/download/server/latest/artifact/ubuntu18' ;
             tar -xvf aerospike.tgz ;
@@ -63,7 +62,7 @@ provisioner "file" {
             sudo cp /tmp/aerospike.conf /etc/aerospike/aerospike.conf && sudo chown root:root /etc/aerospike/aerospike.conf && chmod 644 /etc/aerospike/aerospike.conf
             sudo systemctl enable aerospike ;
             sudo systemctl start aerospike ;
-            sleep 1m ;
+            sleep 2m ;
             sudo python /tmp/aerospike_v0_data_init.py > /tmp/poc_bdd_aerospike_v0.log 2>&1 ; 
             EOF
 

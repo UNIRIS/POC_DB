@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-0e2f8b6407c122aff"
+  ami = "ami-0abcc115edb9a5bb2"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
@@ -46,13 +46,13 @@ provisioner "file" {
               sudo mkdir -p /DATA/mongodb ;
               sudo ln -s /DATA/mongodb /var/lib/mongodb ;
               sudo apt-get update ;
-              sudo apt-get install -y mongodb-org python2.7 python-pip ;
-              sudo ln -s /usr/bin/python2.7 /usr/bin/python ;
+              sudo apt-get install -y mongodb-org ;
               sudo chown -R mongodb:mongodb /DATA/mongodb ;
               sudo chown mongodb:mongodb /var/lib/mongodb ;
               sudo systemctl start mongod ;
               sudo systemctl enable mongod ;
               sudo pip install pymongo
+              sleep 2m ;
               sudo python /tmp/mongo_v0_data_init.py > /tmp/poc_bdd_mongo_v0.log 2>&1 ; 
               EOF
 

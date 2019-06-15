@@ -3,14 +3,11 @@ import os
 import time
 import hashlib
 from pymongo import MongoClient
-                       
+
 def main():
 
-    #Clean results file
-    resultFilePath = 'TXNChain.txt';
- 
-    if os.path.exists(resultFilePath):
-        os.remove(resultFilePath)
+    #Vars
+    txnChain = []
 
     #Connect to the DB
     client = MongoClient(port=27017)
@@ -23,19 +20,19 @@ def main():
     ADDR = hashlib.sha256(i).hexdigest()
     PREVIOUS_PUBK = str(i)
 
-    #open file for results
-    f=open(resultFilePath, "a+")
-
     #Start a timer
     start_time = time.time()
-    
-    while PREVIOUS_PUBK != 'nil':
-        #To be continued
 
-    f.close()
+    while PREVIOUS_PUBK != 'nil':
+        txn = col.find_one({"address": ADDR})
+        PREVIOUS_PUBK = txn['prev_pubk']
+        ADDR = hashlib.sha256(PREVIOUS_PUBK).hexdigest()
+        txnChain.append(txn)
+
     elapsed_time = time.time() - start_time
-    print "Selecting one Txn takes: " , elapsed_time , "seconds"
+    print "Selecting TxnChain takes: " , elapsed_time , "seconds"
+    print txnChain
 
 
 if __name__ == "__main__":
-	main()
+        main()
