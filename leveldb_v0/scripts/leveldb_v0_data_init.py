@@ -69,7 +69,9 @@ def main():
         db_prev_sig.put(ADDR, PREVIOUS_SIG) 
         db_origin_sig.put(ADDR, ORIGIN_SIG) 
         db_validation_stamp.put(ADDR, VALIDATION_STAMP) 
-        db_cross_validation.put(ADDR, str(CROSS_VALIDATION)) 
+        db_cross_validation.put(ADDR, str(CROSS_VALIDATION))
+        
+        print "txn " + str(i) + " stored \n"
         
 		#PROGRESS
         i+=1

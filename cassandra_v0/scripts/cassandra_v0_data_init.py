@@ -49,7 +49,7 @@ def main():
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """,
         (ADDR, TYPE, str(TIMESTAMP), "", "", "", DATA, "", "", PREVIOUS_PUBK, PREVIOUS_SIG, ORIGIN_SIG, VALIDATION_STAMP , CROSS_VALIDATION))
-
+        print "txn " + str(i) + " stored \n"
         #PROGRESS
         i+=1
 

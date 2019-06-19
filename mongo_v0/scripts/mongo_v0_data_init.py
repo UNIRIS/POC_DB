@@ -61,6 +61,7 @@ def main():
         }
 		
         x = col.insert_one(txn)
+        print "txn " + str(i) + " stored \n"
 
 		#PROGRESS
         i+=1

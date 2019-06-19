@@ -61,6 +61,7 @@ def main():
             "cross_valid" : CROSS_VALIDATION }
 
         client.put(key, bins)
+        print "txn " + str(i) + " stored \n"
 
 		#PROGRESS
         i+=1
