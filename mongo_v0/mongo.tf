@@ -57,7 +57,7 @@ provisioner "file" {
               EOF
 
   tags {
-    Name = "poc_bdd_mongo_v0_100TX"
+    Name = "poc_bdd_mongo_v0_1000TX"
   }
 }
 
