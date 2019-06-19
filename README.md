@@ -1,6 +1,6 @@
 ## INTRODUCTION
 
-This study was made to have the necessary metrics and hypothesis to choose the right NOSQL engine for Uniris Miners
+This study was made to have the necessary metrics and hypothesis to choose the right NOSQL engine for Uniris Nodes
 
 ## ASSUMPTIONS
 
@@ -35,8 +35,8 @@ Bellow the results of the tests
 | Insert of a Txn chain composed from 1000 Txn      |  1.84541893005        | 0.897126913071      |  0.551510095596       |  0.468037128448      |
 |                                                   |  77M of Disk space    | 374M of disk space  |  85M of Disk space    |  80M of disk space   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Insert of a Txn chain composed from 10000 Txn     |                       |                     |                       |                      |
-|                                                   |                       |                     |                       |                      |
+| Insert of a Txn chain composed from 10000 Txn     |  14.4179930687        | 8.50966596603       |  5.24847602844        |  4.81066298485       |
+|                                                   |  105M of Disk space   | 388M of disk space  |  112M of Disk space   |  99M of disk space   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Insert of a Txn chain composed from 100000 Txn    |                       |                     |                       |                      |
 |                                                   |                       |                     |                       |                      |
@@ -60,13 +60,13 @@ Bellow the results of the tests
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Select one  Txn from a DB containing 1000 Txn                |  0.00375294685364     |  0.00318908691406   | 0.000200033187866     | 0.000460863113403     | 
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select one  Txn from a DB containing 10000 Txn               |
+| Select one  Txn from a DB containing 10000 Txn               |  0.00283908843994     |  0.00892400741577   | 0.000194072723389     | 0.00281405448914      |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select one  Txn from a DB containing 100000 Txn              |
+| Select one  Txn from a DB containing 100000 Txn              |                       |                     |                       |                       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select one  Txn from a DB containing 1000000 Txn             |
+| Select one  Txn from a DB containing 1000000 Txn             |                       |                     |                       |                       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select one  Txn from a DB containing 10000000 Txn            |
+| Select one  Txn from a DB containing 10000000 Txn            |                       |                     |                       |                       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
