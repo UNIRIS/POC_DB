@@ -67,7 +67,7 @@ provisioner "file" {
             EOF
 
   tags {
-    Name = "poc_bdd_aerospike_v0_10MTX"
+    Name = "poc_bdd_aerospike_v0_100MTX"
   }
 }
 

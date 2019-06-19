@@ -51,7 +51,7 @@ provisioner "file" {
               sudo python /tmp/leveldb_v0_data_init.py > /tmp/poc_bdd_leveldb_v0.log 2>&1 ; 
               EOF
   tags {
-    Name = "poc_bdd_leveldb_v0_10MTX"
+    Name = "poc_bdd_leveldb_v0_100MTX"
   }
 }
 

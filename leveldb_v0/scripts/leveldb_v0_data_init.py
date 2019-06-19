@@ -17,7 +17,7 @@ def main():
     max_char = 1000
     allchar = string.ascii_letters + string.punctuation + string.digits
     i = 0
-    nbTxn = 10000000
+    nbTxn = 100000000
     
     #DEFINE DB
     db = plyvel.DB(dbDir, create_if_missing=True)
