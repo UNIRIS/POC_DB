@@ -73,7 +73,7 @@ provisioner "file" {
               EOF
 
   tags {
-    Name = "poc_bdd_cassandra_v0_10TX"
+    Name = "poc_bdd_cassandra_v0_100TX"
   }
 }
 

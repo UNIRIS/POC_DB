@@ -26,7 +26,8 @@ Bellow the results of the tests
 
 | Action                                            | Cassandra Observation | MongoDB Observation | Aerospike Observation | LevelDB Observation  |
 | ------------------------------------------------- | --------------------- | ------------------- | --------------------- | -------------------- |
-| Insert of a Txn chain composed from 10 Txn        | 
+| Insert of a Txn chain composed from 10 Txn        |  0.0456340312958 s    | 0.0525307655334     | 0.00594997406006 s    |  0.00483798980713    |
+|                                                   |  74M of Disk space    | 373M  of Disk space | 82M of Disk space     |  74M of Disk space   |
 | Insert of a Txn chain composed from 100 Txn       |
 | Insert of a Txn chain composed from 1000 Txn      |
 | Insert of a Txn chain composed from 10000 Txn     |
@@ -40,7 +41,7 @@ Bellow the results of the tests
 
 | Action                                                       | Cassandra Observation | MongoDB Observation | Aerospike Observation |  LevelDB Observation  |
 | ------------------------------------------------------------ | --------------------- | ------------------- | --------------------- | --------------------- |
-| Select one  Txn from a DB containing 10 Txn                  | 
+| Select one  Txn from a DB containing 10 Txn                  |  0.00366401672363     |  0.00255703926086   | 0.000259876251221     | 0.000114917755127     |
 | Select one  Txn from a DB containing 100 Txn                 |
 | Select one  Txn from a DB containing 1000 Txn                |
 | Select one  Txn from a DB containing 10000 Txn               |

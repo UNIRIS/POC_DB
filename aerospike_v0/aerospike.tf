@@ -51,7 +51,7 @@ provisioner "file" {
 
   user_data = <<-EOF
             #!/bin/bash
-            sudo apt-get update
+            sudo apt-get update;
             sudo apt install -y python-dev libssl-dev zlib1g-dev;
             sudo pip install aerospike ;
             cd /tmp && wget -O aerospike.tgz 'https://www.aerospike.com/download/server/latest/artifact/ubuntu18' ;
@@ -67,7 +67,7 @@ provisioner "file" {
             EOF
 
   tags {
-    Name = "poc_bdd_aerospike_v0_10TX"
+    Name = "poc_bdd_aerospike_v0_100TX"
   }
 }
 
