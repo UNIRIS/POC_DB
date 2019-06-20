@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-0abcc115edb9a5bb2"
+  ami = "ami-046a3e7020ff968c3"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
