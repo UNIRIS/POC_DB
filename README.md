@@ -91,11 +91,27 @@ Bellow the results of the tests
 | -------------------------------------------------| --------------------- | ------------------- | --------------------- | --------------------- |
 
 
+## RAM usage when stressing the DB instance whith many work (more than 150G of DATA in the DB)
+
+Action performed to stress the DB:
+
+* Random txn chain select.
+* Random txn select
+* Random writing
+
+| Cassandra Observation | MongoDB Observation | Aerospike Observation |  LevelDB Observation  |
+| --------------------- | ------------------- | --------------------- | --------------------- |
+|                       |                     |                       |                       |
+|                       |                     |                       |                       |
+| --------------------- | ------------------- | --------------------- | --------------------- |
+
+
+
 ## GET BALANCE (UCO) of one Address from a memory View containing 10 million lines
 
 Bellow the results of the tests
 
 | Action                                           | Redis Observation     | AeroSpike Observation | 
 | -------------------------------------------------| --------------------- | --------------------- | 
-| Get Balance                    | 
+| Get Balance                                      |                       |                       |
 
