@@ -11,7 +11,7 @@ This study was made to have the necessary metrics and hypothesis to choose the r
 
 - CPU is 2 core / 4 thread.
 - RAM is up to 32G maximum.
-- NVMe SSD up to 2TB (on AWS maximum IOPS is 25000 for a 500 SSD Disk which is less than the IOPS of a NVMe disks)
+- NVMe SSD up to 2TB (on AWS maximum IOPS is 25000 for a 500 (20 iops for each GB) SSD Disk which is less than the IOPS of a NVMe disks)
 
 
 ### Using this metrics we will suppose that:

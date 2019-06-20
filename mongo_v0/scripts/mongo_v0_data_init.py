@@ -16,7 +16,7 @@ def main():
     max_char = 1000
     allchar = string.ascii_letters + string.punctuation + string.digits
     i = 0
-    nbTxn = 100000000
+    nbTxn = 10000000
 
     #Connect to the DB
     client = MongoClient(port=27017)

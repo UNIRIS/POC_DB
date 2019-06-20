@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-046a3e7020ff968c3"
+  ami = "ami-0f6aaa324e904c0fd"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
@@ -67,7 +67,7 @@ provisioner "file" {
             EOF
 
   tags {
-    Name = "poc_bdd_aerospike_v0_100MTX"
+    Name = "poc_bdd_aerospike_v0_10MTX"
   }
 }
 

@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "single" {
-  ami = "ami-046a3e7020ff968c3"
+  ami = "ami-0f6aaa324e904c0fd"
   instance_type = "t2.xlarge"
   key_name = "${var.ami_key_pair_name}"
   security_groups = ["${var.security_group}"]
@@ -51,7 +51,7 @@ provisioner "file" {
               sudo python /tmp/leveldb_v0_data_init.py > /tmp/poc_bdd_leveldb_v0.log 2>&1 ; 
               EOF
   tags {
-    Name = "poc_bdd_leveldb_v0_100MTX"
+    Name = "poc_bdd_leveldb_v0_10MTX"
   }
 }
 
