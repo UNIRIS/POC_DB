@@ -26,7 +26,7 @@ Bellow the results of the tests
 
 | Action                                            | Cassandra Observation | MongoDB Observation | Aerospike Observation | LevelDB Observation  |
 | ------------------------------------------------- | --------------------- | ------------------- | --------------------- | -------------------- |
-| Insert of a Txn chain composed from 10 Txn        |  0.0456340312958 s    | 0.0525307655334     | 0.00594997406006      |  0.00483798980713    |
+| Insert of a Txn chain composed from 10 Txn        |  0.0456340312958      | 0.0525307655334     | 0.00594997406006      |  0.00483798980713    |
 |                                                   |  74M of Disk space    | 373M  of Disk space | 82M of Disk space     |  74M of Disk space   |
 | ------------------------------------------------- | --------------------- | ------------------- | --------------------- | -------------------- |
 | Insert of a Txn chain composed from 100 Txn       |  0.267061948776       | 0.129609107971      |  0.0571138858795      |  0.0477669239044     |
@@ -47,8 +47,8 @@ Bellow the results of the tests
 | Insert of a Txn chain composed from 10000000 Txn  |  13434.3231409        | 8409.21618295       |  5263.31707096        |   7980.68224788      |
 |                                                   |  13G                  | 15G of Disk space   |  31G of Disk space    |   23G of Disk space  |
 | ------------------------------------------------- | --------------------- | ------------------- | --------------------- | -------------------- |
-| Insert of a Txn chain composed from 100000000 Txn |                       |                     |                       |                      |
-|                                                   |                       |                     |                       |                      |
+| Insert of a Txn chain composed from 100000000 Txn |                       |                     |  55798.2558019        |                      |
+|                                                   |                       |                     |  300G of Disk space   |                      |
 | ------------------------------------------------- | --------------------- | ------------------- | --------------------- | -------------------- |
 
 ## SELECT one TXN from a DB (maxtime of 5 random tests)
@@ -71,24 +71,24 @@ Bellow the results of the tests
 | ------------------------------------------------------------ | --------------------- | ------------------- | --------------------- | --------------------- |
 | Select one  Txn from a DB containing 10000000 Txn            |  0.00622200965881     |  100.191411018 *    | 0.000756025314331     | 0.0431909561157       |
 | ------------------------------------------------------------ | --------------------- | ------------------- | --------------------- | --------------------- |
-| Select one  Txn from a DB containing 100000000 Txn           |                       |                     |                       |                       |
+| Select one  Txn from a DB containing 100000000 Txn           |                       |                     | 0.000735998153687     |                       |
 | ------------------------------------------------------------ | --------------------- | ------------------- | --------------------- | --------------------- |
 
 * mongodb takes a long time when an entry is not yet on the memory, after each search the entry is keeped on the memory so after a first request (100s) the seconds one for the same entry take about (2s).
 
-## SELECT A TXN chain from a DB containing 450G of DATA (maxtime of 5 random tests)
+## SELECT A TXN chain from a DB containing 100000000 Txn (more than 150G of DATA)   (maxtime of 5 random tests)
 
 Bellow the results of the tests
 
 | Action                                           | Cassandra Observation | MongoDB Observation | Aerospike Observation |  LevelDB Observation  |
 | -------------------------------------------------| --------------------- | ------------------- | --------------------- | --------------------- |
-| Select one  Txn chain of 10                      | 
-| Select one  Txn chain of 100 Txn                 |
-| Select one  Txn chain of 1000 Txn                |
-| Select one  Txn chain of 10000 Txn               |
-| Select one  Txn chain of 100000 Txn              |
-| Select one  Txn chain of 1000000 Txn             |
-| Select one  Txn chain of 10000000 Txn            |
+| Select one  Txn chain of 10                      |                       |                     | 0.00119090080261      |                       |
+| Select one  Txn chain of 100 Txn                 |                       |                     | 0.0448069572449       |                       |
+| Select one  Txn chain of 1000 Txn                |                       |                     | 0.422235965729        |                       |
+| Select one  Txn chain of 10000 Txn               |                       |                     | 4.07087206841         |                       |
+| Select one  Txn chain of 100000 Txn              |                       |                     | 41.7022249699         |                       |
+| Select one  Txn chain of 1000000 Txn             |                       |                     | 435.582072973         |                       |
+| -------------------------------------------------| --------------------- | ------------------- | --------------------- | --------------------- |
 
 
 ## GET BALANCE (UCO) of one Address from a memory View containing 10 million lines

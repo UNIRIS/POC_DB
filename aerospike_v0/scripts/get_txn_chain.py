@@ -29,11 +29,11 @@ def main():
         (key, metadata, record) = client.get(key)
         PREVIOUS_PUBK = record['prev_pubk']
         ADDR = hashlib.sha256(PREVIOUS_PUBK).hexdigest()
-        txnChain.append(txn)
+        txnChain.append(record)
 
     elapsed_time = time.time() - start_time
     print "Selecting TxnChain takes: " , elapsed_time , "seconds"
-    print txnChain
+    #print txnChain
 
 
 if __name__ == "__main__":
