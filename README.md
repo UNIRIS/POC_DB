@@ -103,16 +103,31 @@ Bellow the results of the tests
 
 Action performed to stress the DB:
 
-* Random txn chain select.
-* Random txn select
-* Random writing
+* Random txn select (while True)
+* Random writing (while True)
 
-| Cassandra Observation | MongoDB Observation | Aerospike Observation |  LevelDB Observation  |
-| --------------------- | ------------------- | --------------------- | --------------------- |
-|                       |                     |                       |                       |
-|                       |                     |                       |                       |
-| --------------------- | ------------------- | --------------------- | --------------------- |
+RAM usage:
 
+| Cassandra Observation | Aerospike Observation | 
+| --------------------- | ------------------- | 
+|                       |  +500M of RAM usage | 
+| --------------------- | ------------------- |
+
+CPU usage:
+
+| Cassandra Observation | Aerospike Observation    | 
+| --------------------- | -------------------------| 
+|                       | 70% maximum of cpu usage | 
+|                       | 2.88 of load for 4 cpu   |
+| --------------------- | -------------------------|
+
+READ Queries:
+
+| Cassandra Observation | Aerospike Observation | 
+| --------------------- | --------------------- | 
+|                       |  0.000596046447754 s  | 
+|                       |                       |
+| --------------------- | --------------------- |
 
 
 ## GET BALANCE (UCO) of one Address from a memory View containing 10 million lines
