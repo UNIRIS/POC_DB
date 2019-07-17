@@ -110,23 +110,29 @@ RAM usage:
 
 | Cassandra Observation | Aerospike Observation | 
 | --------------------- | ------------------- | 
-|                       |  +500M of RAM usage | 
+| +500M of Ram usage    |  +500M of RAM usage | 
 | --------------------- | ------------------- |
 
 CPU usage:
 
-| Cassandra Observation | Aerospike Observation    | 
-| --------------------- | -------------------------| 
-|                       | 70% maximum of cpu usage | 
-|                       | 2.88 of load for 4 cpu   |
-| --------------------- | -------------------------|
+| Cassandra Observation     | Aerospike Observation    | 
+| ------------------------- | -------------------------| 
+|  75% maximum of cpu usage | 70% maximum of cpu usage | 
+|  3.8 of max load          | 2.95 of max load         |
+| ------------------------- | -------------------------|
 
-READ Queries:
+Read 1 txn:
 
 | Cassandra Observation | Aerospike Observation | 
 | --------------------- | --------------------- | 
-|                       |  0.000596046447754 s  | 
-|                       |                       |
+| 0.0154860744476       | 0.000596046447754     | 
+| --------------------- | --------------------- |
+
+Write 1000 txn:
+
+| Cassandra Observation | Aerospike Observation | 
+| --------------------- | --------------------- | 
+| 2.14787316322         | 0.631510095796        | 
 | --------------------- | --------------------- |
 
 
